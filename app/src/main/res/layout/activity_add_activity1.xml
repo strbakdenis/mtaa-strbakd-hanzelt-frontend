@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background3">
+
+  <ImageButton
+      android:id="@+id/back"
+      android:layout_width="50dp"
+      android:layout_height="50dp"
+      android:layout_marginStart="6dp"
+      android:layout_marginLeft="6dp"
+      android:layout_marginTop="24dp"
+      android:src="@drawable/arrow_back"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:srcCompat="@tools:sample/avatars" />
+
+  <ImageButton
+      android:id="@+id/profile_icon"
+      android:layout_width="52dp"
+      android:layout_height="50dp"
+      android:layout_marginTop="24dp"
+      android:layout_marginEnd="72dp"
+      android:layout_marginRight="72dp"
+      android:src="@drawable/rsz_user1"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:srcCompat="@tools:sample/avatars" />
+
+  <ImageButton
+      android:id="@+id/home_icon"
+      android:layout_width="60dp"
+      android:layout_height="50dp"
+      android:layout_marginTop="24dp"
+      android:layout_marginEnd="3dp"
+      android:layout_marginRight="3dp"
+      android:src="@drawable/home1"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:srcCompat="@tools:sample/avatars" />
+
+  <View
+      android:id="@+id/view3"
+      android:layout_width="800dp"
+      android:layout_height="2dp"
+      android:layout_marginTop="12dp"
+      android:background="@color/black"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/back" />
+
+  <TextView
+      android:id="@+id/add_activity"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="69dp"
+      android:layout_marginLeft="69dp"
+      android:layout_marginTop="32dp"
+      android:text="@string/pridat_aktivitu"
+      android:textSize="30sp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <TextView
+      android:id="@+id/city_add"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="16dp"
+      android:layout_marginLeft="16dp"
+      android:layout_marginTop="40dp"
+      android:text="@string/mesto"
+      android:textSize="30sp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+  <TextView
+      android:id="@+id/name_add"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="16dp"
+      android:layout_marginLeft="16dp"
+      android:layout_marginTop="108dp"
+      android:text="@string/nazov"
+      android:textSize="30sp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/city_add" />
+
+  <TextView
+      android:id="@+id/address_add"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="16dp"
+      android:layout_marginLeft="16dp"
+      android:layout_marginTop="108dp"
+      android:text="@string/adresa"
+      android:textSize="30sp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/name_add" />
+
+  <Button
+      android:id="@+id/register_registration"
+      android:layout_width="248dp"
+      android:layout_height="94dp"
+      android:layout_marginStart="72dp"
+      android:layout_marginLeft="72dp"
+      android:layout_marginTop="152dp"
+      android:text="Potvrdiť"
+      app:backgroundTint="#4CAF50"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/photos_add" />
+
+  <TextView
+      android:id="@+id/description_add"
+      android:layout_width="160dp"
+      android:layout_height="58dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginLeft="16dp"
+      android:layout_marginBottom="9dp"
+      android:text="@string/popis"
+      android:textSize="30sp"
+      app:layout_constraintBottom_toTopOf="@+id/address_add"
+      app:layout_constraintStart_toStartOf="parent" />
+
+  <com.google.android.material.textfield.TextInputEditText
+      android:id="@+id/name_registration_input"
+      android:layout_width="255dp"
+      android:layout_height="50dp"
+      android:layout_marginTop="48dp"
+      android:layout_marginEnd="15dp"
+      android:layout_marginRight="15dp"
+      android:inputType="text"
+      android:maxLines="1"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+  <com.google.android.material.textfield.TextInputEditText
+      android:id="@+id/email_registration_input"
+      android:layout_width="255dp"
+      android:layout_height="50dp"
+      android:layout_marginTop="88dp"
+      android:layout_marginEnd="15dp"
+      android:layout_marginRight="15dp"
+      android:inputType="text"
+      android:maxLines="1"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/name_registration_input" />
+
+  <com.google.android.material.textfield.TextInputEditText
+      android:id="@+id/password_registration_input"
+      android:layout_width="255dp"
+      android:layout_height="50dp"
+      android:layout_marginTop="32dp"
+      android:layout_marginEnd="15dp"
+      android:layout_marginRight="15dp"
+      android:inputType="text"
+      android:maxLines="1"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/email_registration_input" />
+
+  <com.google.android.material.textfield.TextInputEditText
+      android:id="@+id/againpassword_registration_input"
+      android:layout_width="255dp"
+      android:layout_height="50dp"
+      android:layout_marginTop="20dp"
+      android:layout_marginEnd="15dp"
+      android:layout_marginRight="15dp"
+      android:inputType="text"
+      android:maxLines="1"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/password_registration_input" />
+
+  <TextView
+      android:id="@+id/photos_add"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="16dp"
+      android:layout_marginLeft="16dp"
+      android:layout_marginTop="37dp"
+      android:text="Fotky miesta"
+      android:textSize="30sp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/againpassword_registration_input" />
+
+  <TextView
+      android:id="@+id/type_add"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="18dp"
+      android:layout_marginLeft="18dp"
+      android:layout_marginTop="37dp"
+      android:text="Typ"
+      android:textSize="30sp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/city_add" />
+
+  <ImageButton
+      android:id="@+id/add_button"
+      android:layout_width="50dp"
+      android:layout_height="50dp"
+      android:layout_marginStart="52dp"
+      android:layout_marginLeft="52dp"
+      android:layout_marginTop="27dp"
+      android:src="@drawable/rsz_add"
+      android:background="@null"
+      app:layout_constraintStart_toEndOf="@+id/photos_add"
+      app:layout_constraintTop_toBottomOf="@+id/againpassword_registration_input"
+      tools:srcCompat="@tools:sample/avatars" />
+
+  <Button
+      android:id="@+id/choose_type"
+      android:layout_width="252dp"
+      android:layout_height="59dp"
+      android:layout_marginStart="57dp"
+      android:layout_marginLeft="57dp"
+      android:layout_marginTop="11dp"
+      android:text="Vybrať"
+      android:textColor="#040304"
+      app:backgroundTint="#021E40E9"
+      app:iconTint="#05BDE91E"
+      app:layout_constraintStart_toEndOf="@+id/type_add"
+      app:layout_constraintTop_toBottomOf="@+id/name_registration_input" />
+
+  <ImageView
+      android:id="@+id/pic"
+      android:layout_width="107dp"
+      android:layout_height="102dp"
+      android:layout_marginStart="147dp"
+      android:layout_marginLeft="147dp"
+      android:layout_marginTop="23dp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/photos_add"
+      tools:src="@tools:sample/avatars" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

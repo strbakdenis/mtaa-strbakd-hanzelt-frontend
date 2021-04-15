@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/menu_sport"
+        android:title="Šport" />
+
+    <item android:id="@+id/menu_historia"
+        android:title="História" />
+
+    <item android:id="@+id/menu_turistika"
+        android:title="Turistika" />
+
+    <item android:id="@+id/menu_zabava"
+        android:title="Zábava" />
+
+    <item android:id="@+id/menu_relax"
+        android:title="Relax" />
+
+    <item android:id="@+id/menu_kultura"
+        android:title="Kultúra" />
+
+</menu>
