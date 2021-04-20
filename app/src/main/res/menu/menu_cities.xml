@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/skuska">
 
-    <item android:id="@+id/menu_bratislava"
-        android:title="Bratislava" />
-
-    <item android:id="@+id/menu_trnava"
-        android:title="Trnava" />
-
-    <item android:id="@+id/menu_zilina"
-        android:title="Žilina" />
+    <item android:id="@+id/menu_divne"
+        android:title= "One"/>
 
 </menu>

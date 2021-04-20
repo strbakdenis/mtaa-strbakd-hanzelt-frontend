@@ -10,6 +10,16 @@ import android.view.LayoutInflater
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import com.google.gson.GsonBuilder
+import com.google.gson.JsonParser
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.RequestBody.Companion.toRequestBody
+import org.json.JSONObject
+import retrofit2.Retrofit
 
 
 class Profile : AppCompatActivity() {
@@ -30,57 +40,85 @@ class Profile : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val logoutbtn: Button = findViewById(R.id.logout_btn)
+        logoutbtn.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            token = ""
+            Toast.makeText(applicationContext,"Odhlásený",Toast.LENGTH_SHORT).show()
+            startActivity(intent)
+        }
+
+
+        val email: TextView = findViewById(R.id.email_profile)
+        email.text = login_email
+
         val button1: Button = findViewById(R.id.delete_acc_btn)
         button1.setOnClickListener{
 
             val inflater: LayoutInflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
-            // Inflate a custom view using layout inflater
             val view = inflater.inflate(R.layout.popup_delete,null)
 
-            // Initialize a new instance of popup window
             val popupWindow = PopupWindow(
-                    view, // Custom view to show in popup window
-                    LinearLayout.LayoutParams.WRAP_CONTENT, // Width of popup window
-                    LinearLayout.LayoutParams.WRAP_CONTENT // Window height
+                    view,
+                    LinearLayout.LayoutParams.WRAP_CONTENT, //
+                    LinearLayout.LayoutParams.WRAP_CONTENT //
             )
 
-            // Get the widgets reference from custom view
             val tv = view.findViewById<Button>(R.id.delete_sure_btn)
             val buttonPopup = view.findViewById<Button>(R.id.delete_notsure_btn)
             val xko = view.findViewById<TextView>(R.id.xko)
 
-            // Set click listener for popup window's text view
             tv.setOnClickListener{
-                // Change the text color of popup window's text view
                 popupWindow.dismiss()
-                Toast.makeText(applicationContext,"Zmazané",Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
+                val intent1 = Intent(this, Profile::class.java)
+
+                val retrofit = Retrofit.Builder()
+                    .baseUrl("https://e95a4d3de6d8.ngrok.io/")
+                    .build()
+
+                val service = retrofit.create(APIService::class.java)
+
+                CoroutineScope(Dispatchers.IO).launch {
+
+                    val response = service.delete(token)
+
+                    withContext(Dispatchers.Main) {
+                        if (response.isSuccessful) {
+
+                            Toast.makeText(applicationContext,"Účet bol zmazaný",Toast.LENGTH_SHORT).show()
+                            token = ""
+                            login_email = ""
+                            startActivity(intent)
+                        } else {
+
+                            if (response.code() == 404) {
+                                Toast.makeText(applicationContext, "Nepodarilo sa zmazať účet", Toast.LENGTH_LONG).show()
+                                startActivity(intent1)
+                            }
+                        }
+                    }
+                }
             }
+
             xko.setOnClickListener{
                 popupWindow.dismiss()
                 Toast.makeText(applicationContext,"Zrušené",Toast.LENGTH_SHORT).show()
             }
 
-            // Set a click listener for popup's button widget
             buttonPopup.setOnClickListener{
-                // Dismiss the popup window
                 popupWindow.dismiss()
                 Toast.makeText(applicationContext,"Zrušené",Toast.LENGTH_SHORT).show()
             }
 
-            // Finally, show the popup window on app
             TransitionManager.beginDelayedTransition(findViewById(R.id.my_profile))
             popupWindow.showAtLocation(
-                    findViewById(R.id.my_profile), // Location to display popup window
-                    Gravity.CENTER, // Exact position of layout to display popup
-                    0, // X offset
-                    0 // Y offset
+                    findViewById(R.id.my_profile),
+                    Gravity.CENTER,
+                    0,
+                    0
             )
         }
-
     }
-
-
 }

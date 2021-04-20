@@ -57,26 +57,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Vyber mesto"
+        android:fontFamily="monospace"
         android:gravity="center"
         android:orientation="vertical"
+        android:text="Vyber mesto"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view3" />
 
-    <Button
-        android:id="@+id/choose_city"
-        android:layout_width="332dp"
+    <Spinner
+        android:id="@+id/spinner_choose_city"
+        android:layout_width="300dp"
         android:layout_height="76dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="28dp"
-        android:text="Vybrať"
-        android:textColor="#040304"
-        app:backgroundTint="#021E40E9"
-        app:iconTint="#05BDE91E"
+        android:layout_gravity="center"
+        android:layout_marginTop="170dp"
+        android:layout_marginLeft="40dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <ImageView
         android:id="@+id/imageView8"
@@ -84,19 +82,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/choose_city"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_choose_city"
         app:srcCompat="@drawable/panoramatic2" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="53dp"
-        android:layout_marginLeft="53dp"
-        android:layout_marginTop="19dp"
-        android:text="Button"
-        app:layout_constraintStart_toEndOf="@+id/back"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,4 +27,7 @@
     <string name="nazov">Názov</string>
     <string name="adresa">Adresa</string>
     <string name="popis">Popis</string>
+    <string name="odhlasit">Odhlásiť</string>
+    <string name="prihlasit">Prihlásiť</string>
+    <string name="zaregistrovat">Zaregistrovať</string>
 </resources>

@@ -105,44 +105,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email_change_input" />
 
-    <TextView
-        android:id="@+id/new_password_repeat"
-        android:layout_width="132dp"
-        android:layout_height="143dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="26dp"
-        android:text="Zopakuj nové heslo"
-        android:textSize="36sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/new_password" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/new_password_change_input"
-        android:layout_width="255dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="92dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginRight="15dp"
-        android:inputType="text"
-        android:maxLines="1"
-        android:password="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/new_password_repeat"
-        app:layout_constraintTop_toBottomOf="@+id/new_password" />
 
     <Button
-        android:id="@+id/register_registration"
+        android:id="@+id/button_change_data"
         android:layout_width="248dp"
         android:layout_height="94dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginLeft="72dp"
+        android:layout_marginTop="48dp"
         android:text="Potvrdiť"
         app:backgroundTint="#4CAF50"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/new_password_repeat" />
-
+        app:layout_constraintTop_toBottomOf="@+id/password_change_input" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

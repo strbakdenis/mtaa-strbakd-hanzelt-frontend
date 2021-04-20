@@ -57,9 +57,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="96dp"
-        android:text="Názov mesta"
+        android:fontFamily="monospace"
         android:gravity="center"
         android:orientation="vertical"
+        android:text="Názov mesta"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

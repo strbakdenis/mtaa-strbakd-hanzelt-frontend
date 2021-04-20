@@ -1,26 +1,27 @@
 package com.example.mtaa_strbakd_hanzelt
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.PopupMenu
-import android.widget.TextView
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.Response
-import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
+import org.json.JSONObject
 
-class Search : AppCompatActivity() {
+
+class Search : AppCompatActivity(), AdapterView.OnItemSelectedListener {
+    private val keyList = mutableMapOf("Vybrať" to 190191991)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
 
-        getVolley()
+        jsonik()
 
         val imageButton: ImageButton = findViewById(R.id.back)
         imageButton.setOnClickListener {
@@ -29,8 +30,15 @@ class Search : AppCompatActivity() {
         }
         val imageButton1: ImageButton = findViewById(R.id.profile_icon)
         imageButton1.setOnClickListener {
-            val intent = Intent(this, Profile::class.java)
-            startActivity(intent)
+
+            if(token.isNotEmpty()) {
+                val intent = Intent(this, Profile::class.java)
+                startActivity(intent)
+            }
+            else {
+                val intent = Intent(this, login_registr::class.java)
+                startActivity(intent)
+            }
         }
 
         val imageButton2: ImageButton = findViewById(R.id.home_icon)
@@ -38,44 +46,53 @@ class Search : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
-
-        val button: Button = findViewById(R.id.button3)
-        button.setOnClickListener {
-            val intent = Intent(this, login_registr::class.java)
-            startActivity(intent)
-        }
-
-        val buttonAdd: Button = findViewById(R.id.choose_city)
-        val popupMenu = PopupMenu(this, buttonAdd)
-
-        popupMenu.menuInflater.inflate(R.menu.menu_cities, popupMenu.menu)
-        popupMenu.setOnMenuItemClickListener { menuItem ->
-            buttonAdd.text = menuItem.title
-            val intent = Intent(this, types_activity::class.java)
-            intent.putExtra("city", menuItem.title)
-            startActivity(intent)
-
-            false
-        }
-
-        buttonAdd.setOnClickListener {
-            popupMenu.show()
-        }
     }
-    fun getVolley(){
-        // Instantiate the RequestQueue.
-        val textView: TextView = findViewById(R.id.textView5)
-        val queue = Volley.newRequestQueue(this)
-        val url: String = "http://192.168.2.33:8000/cities/"
 
-        // Request a string response from the provided URL.
-        val stringReq = StringRequest(Request.Method.GET, url,
-                Response.Listener<String> { response ->
-                    textView.text = "hovno"
-                },
-                Response.ErrorListener {
-                    textView.text = "that didn't work"
-                })
-        queue.add(stringReq)
+    private fun jsonik() {
+        val url = "https://e95a4d3de6d8.ngrok.io/cities/"
+        val queue = Volley.newRequestQueue(this)
+
+        val jsonObjectRequest = JsonArrayRequest(Request.Method.GET, url, null,
+            Response.Listener { response ->
+                var spinner:Spinner ? = null
+                var arrayAdapter:ArrayAdapter<String> ? = null
+                val itemList: MutableList<String> = ArrayList()
+                itemList.add("Vybrať")
+
+                for (i in 0 until response.length()) {
+                    val city: JSONObject = response.getJSONObject(i)
+                    val name = city.getString("name")
+                    val idcity = city.getInt("id")
+                    itemList.add(name)
+                    keyList[name] = idcity
+                }
+                spinner = findViewById(R.id.spinner_choose_city)
+                arrayAdapter =
+                        ArrayAdapter(applicationContext, android.R.layout.simple_spinner_item, itemList)
+                spinner?.adapter = arrayAdapter
+                spinner?.onItemSelectedListener = this
+            },
+            Response.ErrorListener { error ->
+                println("kdesi je chybička")
+            }
+        )
+
+        queue.add(jsonObjectRequest)
+    }
+
+    override fun onNothingSelected(parent: AdapterView<*>?) {
+        Toast.makeText(applicationContext, "Nothing Select", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+
+        var items:String = parent?.getItemAtPosition(position) as String
+        if ("$items" != "Vybrať") {
+            Toast.makeText(applicationContext, "$items", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, types_activity::class.java)
+            intent.putExtra("city", "$items")
+            intent.putExtra("id", keyList["$items"])
+            startActivity(intent)
+        }
     }
 }

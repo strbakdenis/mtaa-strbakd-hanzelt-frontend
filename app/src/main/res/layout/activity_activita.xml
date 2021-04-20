@@ -7,6 +7,7 @@
     tools:context=".Activita"
     android:background="@drawable/background3">
 
+
     <ImageButton
         android:id="@+id/back"
         android:layout_width="50dp"
@@ -56,10 +57,11 @@
         android:id="@+id/mesto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
-        android:text="Názov mesta"
+        android:layout_marginTop="90dp"
+        android:fontFamily="monospace"
         android:gravity="center"
         android:orientation="vertical"
+        android:text="Názov mesta"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -68,7 +70,8 @@
         android:id="@+id/type_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="130dp"
+        android:fontFamily="monospace"
         android:gravity="center"
         android:orientation="vertical"
         android:text="Typ aktivity"
@@ -76,5 +79,59 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <RelativeLayout
+        android:id="@+id/layoutik"
+        android:layout_width="383dp"
+        android:layout_height="472dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="200dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context="com.example.mtaa_strbakd_hanzelt.activities">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/descriptionView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#090909"
+                    android:textSize="25sp"
+                    android:layout_marginTop="20dp"/>
+
+                <TextView
+                    android:id="@+id/address_activity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20sp"
+                    android:textColor="#040303"
+                    android:textSize="30sp"
+                    android:layout_below="@id/descriptionView"/>
+
+            <Button
+                android:id="@+id/gallery_btn"
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="Galéria"
+                app:backgroundTint="#00FFFFFF"
+                android:layout_below="@id/address_activity"
+                android:layout_marginTop="30dp"/>
+
+        </RelativeLayout>
+
+        </ScrollView>
+            </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

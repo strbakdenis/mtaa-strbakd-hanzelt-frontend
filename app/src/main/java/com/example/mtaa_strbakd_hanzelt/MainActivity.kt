@@ -10,6 +10,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         val button: Button = findViewById(R.id.search)
         button.setOnClickListener {
             val intent = Intent(this, Search::class.java)
@@ -17,9 +18,14 @@ class MainActivity : AppCompatActivity() {
         }
         val button1: Button = findViewById(R.id.add_activitka)
         button1.setOnClickListener {
-            val intent = Intent(this, Add_activity1::class.java)
-            startActivity(intent)
+            if(token.isNotEmpty()) {
+                val intent = Intent(this, Add_activity1::class.java)
+                startActivity(intent)
+            }
+            else {
+                val intent = Intent(this, login_registr::class.java)
+                startActivity(intent)
+            }
         }
-
     }
 }

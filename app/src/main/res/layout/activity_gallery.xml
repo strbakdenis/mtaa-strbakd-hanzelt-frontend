@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities"
+    tools:context=".Activita"
     android:background="@drawable/background3">
+
 
     <ImageButton
         android:id="@+id/back"
@@ -53,10 +54,10 @@
         app:layout_constraintTop_toBottomOf="@+id/back" />
 
     <TextView
-        android:id="@+id/mesto"
+        android:id="@+id/mesto_gallery"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="90dp"
         android:fontFamily="monospace"
         android:gravity="center"
         android:orientation="vertical"
@@ -66,10 +67,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/type_activity"
+        android:id="@+id/konkretna_activita"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="130dp"
         android:fontFamily="monospace"
         android:gravity="center"
         android:orientation="vertical"
@@ -78,25 +79,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <RelativeLayout
         android:id="@+id/layoutik"
-        tools:context="com.example.mtaa_strbakd_hanzelt.activities"
-        android:layout_width="380dp"
-        android:layout_height="500dp"
-        android:layout_marginTop="230dp"
+        android:layout_width="383dp"
+        android:layout_height="472dp"
+        android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
+        android:layout_marginTop="200dp"
+        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="5dp"
-        android:orientation="vertical">
+        tools:context="com.example.mtaa_strbakd_hanzelt.activities">
 
         <ListView
-            android:id="@+id/listView"
+            android:id="@+id/photosView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-        </ListView>
+            android:layout_height="match_parent" />
 
 
-    </RelativeLayout>
+            </RelativeLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

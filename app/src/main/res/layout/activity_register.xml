@@ -37,9 +37,10 @@
         android:id="@+id/profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:layout_marginLeft="120dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginLeft="96dp"
         android:layout_marginTop="32dp"
+        android:fontFamily="monospace"
         android:text="@string/registracia"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,22 +64,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="40dp"
-        android:text="Meno"
-        android:textSize="36sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view3" />
-
-    <TextView
-        android:id="@+id/email_registration"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="60dp"
         android:text="E-mail"
         android:textSize="36sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name_registration" />
+        app:layout_constraintTop_toBottomOf="@+id/view3" />
 
     <TextView
         android:id="@+id/password_registration"
@@ -86,44 +75,33 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="60dp"
         android:text="Heslo"
         android:textSize="36sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email_registration" />
+        app:layout_constraintTop_toBottomOf="@+id/name_registration" />
 
     <Button
         android:id="@+id/register_registration"
         android:layout_width="248dp"
         android:layout_height="94dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="56dp"
         android:text="Potvrdiť"
         app:backgroundTint="#4CAF50"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/againpassword_registration" />
-
-    <TextView
-        android:id="@+id/againpassword_registration"
-        android:layout_width="148dp"
-        android:layout_height="115dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="56dp"
-        android:text="Zopakuj heslo"
-        android:textSize="36sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password_registration" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/name_registration_input"
+        android:id="@+id/password_registration_input"
         android:layout_width="255dp"
         android:layout_height="50dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginRight="15dp"
+        android:layout_marginTop="160dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
         android:inputType="text"
+        android:password="true"
         android:maxLines="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view3" />
@@ -132,39 +110,12 @@
         android:id="@+id/email_registration_input"
         android:layout_width="255dp"
         android:layout_height="50dp"
-        android:layout_marginTop="65dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginRight="15dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
         android:inputType="text"
         android:maxLines="1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name_registration_input" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/password_registration_input"
-        android:password="true"
-        android:layout_width="255dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="65dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginRight="15dp"
-        android:inputType="text"
-        android:maxLines="1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email_registration_input" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/againpassword_registration_input"
-        android:password="true"
-        android:layout_width="255dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="83dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginRight="15dp"
-        android:inputType="text"
-        android:maxLines="1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_registration_input" />
-
+        app:layout_constraintTop_toBottomOf="@+id/view3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
